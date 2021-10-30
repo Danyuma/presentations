@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>VS Code metrics</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Практическая реализация метрик кода в Visual Studio Code и их применение</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Метрики</h2>
+						<ul>
+							<li>Метрики размера программ</li>
+							<li>Метрики сложности потока управления программ</li>
+							<li>Метрики сложности потока данных программ</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Метрики размера программ</h2>
+						<img src="./assets/Halstead+s+Software+Science+Metrics+-+Example.jpg" alt="intro">
+					</section>
+					<section>
+						<h4>Метрики сложности потока управления программ</h2>
+						<img src="./assets/cyclomatic-complexity.png" alt="intro">
+					</section>
+					<section>
+						<h4>Метрики сложности потока данных программ</h2>
+						<img src="./assets/Push-Notification-Performance-Metrics.png" alt="intro">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Метрики в VS Code</h2>
+						<img src="./assets/vscode.png" alt="intro">
+					</section>
+					<section>
+						<h2>Длина функции</h2>
+						<img src="./assets/function-length-description.png" alt="intro">
+					</section>
+					<section>
+						<h2>Цикломатическая сложность</h2>
+						<img src="./assets/cyclomatic-complexity-description.png" alt="intro">
+					</section>
+					<section>
+						<h2>Понятность</h2>
+						<img src="./assets/understandability.png" alt="intro">
+					</section>
+					<section>
+						<h2>Число аргументов</h2>
+						<img src="./assets/Argument-count-descs.png" alt="intro">
+					</section>
+					<section>
+						<h2>Глубина вложенности</h2>
+						<img src="./assets/nesting-depth-descs.png" alt="intro">
+					</section>
+					<section>
+						<h2>Плотность комментариев</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Использование метрик</h2>
+					</section>
+					<section>
+						<h2>method 'init'</h2>
+						<pre><code data-trim data-noescape>
+							async init(): Promise<CombinedDB> {
+								try {
+								  await this.postgresDb.init();
+								  await this.redshiftDb.init();
+								} catch (err) {
+								  console.log('CombinedDB init Error ' + (err as Error).message);
+								};
+							
+								return this;
+							};
+						</code></pre>
+					</section>
+					<section>
+						<img src="./assets/init-function-result.png" alt="intro">
+					</section>
+					<section>
+						<h2>method 'end'</h2>
+						<pre><code data-trim data-noescape>
+							async end(callback?: () => void) {
+								try {
+									if (callback) {
+										await this.postgresDb.end(callback);
+										await this.redshiftDb.end(callback);
+									} else {
+										await this.postgresDb.end();
+										await this.redshiftDb.end();
+									};
+								} catch (err) {
+									console.log('CombinedDB end Error ' + (err as Error).message);
+								};
+							};
+						</code></pre>
+					</section>
+					<section>
+						<img src="./assets/end-function-result.png" alt="intro">
+					</section>
+				</section>
+				<section>
+					<h2>Conclusion</h1>
+					<img src="./assets/metric-vscode-slide1.jpg" alt="last-slide">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
