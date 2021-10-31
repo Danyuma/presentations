@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>VS Code metrics</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Практическая реализация метрик кода в Visual Studio</h2>
+				</section>
+				<section>
+					<img src="./assets/9e9ddf0e7edc8d57898c47904dc155a4.jpg" alt="intro">
+				</section>
+				<section>
+					<section>
+						<h2>Вычисление метрик в Visual Studio</h2>
+					</section>
+					<section>
+						<img src="./assets/vs-slide1.png" alt="intro">
+					</section>
+					<section>
+						<img src="./assets/vs-slide2.png" alt="intro">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Значения столбцов и их значения в коде</h2>
+					</section>
+					<section>
+						<h2>Формула</h2>
+						<h3 style="color: darkkhaki">
+							MI = MAX(0, (171 — 5.2 * ln(HV) — 0.23 * CC — 16.2 * ln(LoC)) * 100 / 171
+						</h3>
+						<ul>
+							<li>HV (Halsted Volume) – вычислительная сложность</li>
+							<li>CC (Cyclomatic Complexity) - цикломатическая сложность</li>
+							<li>LoC (Lines of Code) - количество строк кода</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Цикломатическая сложность</h2>
+						<img src="./assets/software-engineering-cyclomatic-complexity.png" alt="intro">
+					</section>
+					<section>
+						<h2>Глубина наследования</h2>
+						<img src="./assets/Depth+of+Inheritance+Tree+-+Example.jpg" alt="intro">
+					</section>
+					<section>
+						<h2>Связь классов</h2>
+						<img src="./assets/Untitled-28.png" alt="intro">
+					</section>
+					<section>
+						<h2>Количество строк кода</h2>
+					</section>
+				</section>
+				<section>
+					<h2 style="color: lemonchiffon">Минусы метрик:</h2>
+					<ul>
+						<li>Зависят от языка программирования</li>
+						<li>Не учитывают человеческий фактор</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Выводы</h1>
+					<img src="./assets/Lead-generation-metrics-KPIs.png" alt="last-slide">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
